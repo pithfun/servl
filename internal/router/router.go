@@ -25,7 +25,7 @@ func NewRouter() (e *echo.Echo) {
 
 	// Routes
 	e.GET("/", handlers.GetIndex)
-	e.GET("/v1/meeting/:id", handlers.GetMeeting)
+	e.GET("/v1/meetings/:id", handlers.GetMeeting)
 
 	return e
 }

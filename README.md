@@ -1,2 +1,3 @@
-# api
-Meetpanel server
+# Meetpanel API
+
+Meetpanel API
