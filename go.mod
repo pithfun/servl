@@ -1,9 +1,9 @@
-module meetpanel
+module gobblin
 
 go 1.20
 
 require (
-	github.com/google/uuid v1.1.2
+	github.com/davecgh/go-spew v1.1.1
 	github.com/labstack/echo/v4 v4.11.1
 	github.com/labstack/gommon v0.4.0
 	github.com/spf13/viper v1.16.0
@@ -11,7 +11,6 @@ require (
 )
 
 require (
-	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect

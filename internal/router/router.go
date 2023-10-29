@@ -1,7 +1,7 @@
 package router
 
 import (
-	"meetpanel/internal/handlers"
+	"gobblin/internal/handlers"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
@@ -25,7 +25,6 @@ func NewRouter() (e *echo.Echo) {
 
 	// Routes
 	e.GET("/", handlers.GetIndex)
-	e.GET("/v1/meetings/:id", handlers.GetMeeting)
 
 	return e
 }

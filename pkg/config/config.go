@@ -27,7 +27,6 @@ func GetConfig() (Config, error) {
 	viper.AddConfigPath(".")
 	viper.AddConfigPath("config")
 	viper.AddConfigPath("../config")
-	viper.AddConfigPath("../../config")
 
 	// Read config
 	viper.SetEnvPrefix("mtpl")
