@@ -1,16 +1,15 @@
 package main
 
 import (
-	container "gobblin/pkg/services"
-
-	"github.com/davecgh/go-spew/spew"
+	services "gobblin/pkg/services"
 )
 
 func main() {
 	// Start a new container
-	c := container.NewContainer()
-	defer c.Shutdown()
-
-	// Spew the container
-	spew.Dump(c)
+	c := services.NewContainer()
+	defer func() {
+		if err := c.Shutdown(); err != nil {
+			c.Shutdown()
+		}
+	}()
 }
