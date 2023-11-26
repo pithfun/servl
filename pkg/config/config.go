@@ -25,8 +25,7 @@ func GetConfig() (Config, error) {
 	viper.SetConfigName("config")
 	viper.SetConfigType("yaml")
 	viper.AddConfigPath(".")
-	viper.AddConfigPath("config")
-	viper.AddConfigPath("../config")
+	viper.AddConfigPath("pkg/config")
 
 	// Read config
 	viper.SetEnvPrefix("mtpl")
