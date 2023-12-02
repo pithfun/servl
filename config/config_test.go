@@ -16,8 +16,10 @@ func TestConfig_GetConfig(t *testing.T) {
 func TestConfig_SwitchEnvironment(t *testing.T) {
 	var env environment = EnvTest
 	SwitchEnv(env)
+
 	cfg, err := GetConfig()
 	require.NoError(t, err)
+
 	assert.Equal(t, env, cfg.App.Environment)
 }
 
@@ -28,6 +30,6 @@ func TestConfig_OverrideWithEnvVariables(t *testing.T) {
 	cfg, err := GetConfig()
 	require.NoError(t, err)
 
-	require.Equal(t, "127.0.0.1", cfg.HTTP.Hostname)
-	require.Equal(t, uint16(8080), cfg.HTTP.Port)
+	assert.Equal(t, "127.0.0.1", cfg.HTTP.Hostname)
+	assert.Equal(t, uint16(8080), cfg.HTTP.Port)
 }
