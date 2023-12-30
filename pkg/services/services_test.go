@@ -1,7 +1,7 @@
 package services
 
 import (
-	"gobblin/config"
+	"goblin/config"
 	"os"
 	"testing"
 )

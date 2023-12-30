@@ -2,38 +2,46 @@ package main
 
 import (
 	"context"
+	"fmt"
+	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
 
-	"github.com/davecgh/go-spew/spew"
-
-	services "gobblin/pkg/services"
+	"goblin/pkg/routes"
+	"goblin/pkg/services"
 )
 
 func main() {
 	// Start a new container
 	c := services.NewContainer()
-
 	defer func() {
 		if err := c.Shutdown(); err != nil {
-			// TODO: Handle shutdown
-			spew.Dump("Shutting container down…")
+			c.Web.Logger.Fatal(err)
 		}
 	}()
 
-	// Web server
-	go func() {
-	}()
+	// Build the router
+	routes.BuildRouter(c)
 
-	// GraphQL server
+	// Start web server
 	go func() {
+		srv := http.Server{
+			Addr: fmt.Sprintf("%s:%d", c.Config.HTTP.Hostname, c.Config.HTTP.Port),
+		}
+
+		if err := c.Web.StartServer(&srv); err != http.ErrServerClosed {
+			c.Web.Logger.Fatalf("shutting down the server: %v", err)
+		}
 	}()
 
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, os.Interrupt, syscall.SIGTERM)
 	<-quit
-	_, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
+	if err := c.Web.Shutdown(ctx); err != nil {
+		c.Web.Logger.Fatal(err)
+	}
 }

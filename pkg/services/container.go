@@ -2,34 +2,37 @@ package services
 
 import (
 	"fmt"
-	"gobblin/config"
+	"goblin/config"
 
 	"github.com/davecgh/go-spew/spew"
+	"github.com/labstack/echo/v4"
+	"github.com/labstack/gommon/log"
 )
 
 type Container struct {
-	// Application configuration
-	Config *config.Config
-	// Validator stores a validator
+	Config    *config.Config
+	Web       *echo.Echo
 	Validator *Validator
 }
 
-// Create and initialize a new container.
+// Create and initialize a new container
 func NewContainer() *Container {
 	c := new(Container)
 	c.initConfig()
 	c.initValidator()
+	c.initWeb()
+
 	return c
 }
 
-// Shutdown and disconnect from all services.
+// Shutdown the container
 func (c *Container) Shutdown() error {
 	// TODO: Disconnect from Redis, MySQL, etc.
 	spew.Dump("SHUTING DOWN")
 	return nil
 }
 
-// Initialize the application configuration.
+// Application configuration
 func (c *Container) initConfig() {
 	cfg, err := config.GetConfig()
 	if err != nil {
@@ -38,7 +41,21 @@ func (c *Container) initConfig() {
 	c.Config = &cfg
 }
 
-// Initialize the validator.
+// Validator
 func (c *Container) initValidator() {
 	c.Validator = NewValidator()
+}
+
+// Web server
+func (c *Container) initWeb() {
+	c.Web = echo.New()
+
+	switch c.Config.App.Environment {
+	case config.EnvProd:
+		c.Web.Logger.SetLevel(log.WARN)
+	default:
+		c.Web.Logger.SetLevel(log.DEBUG)
+	}
+
+	c.Web.Validator = c.Validator
 }
