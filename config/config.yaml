@@ -1,6 +1,10 @@
 app:
   name: goblin
+  encryptionKey: 'H3@kR$8fL%gT#6Xu2sJpI7eDw9BvN0yQaFxZo1'
   environment: development
+  timeout: 10s
 http:
   hostname: 'localhost'
   port: 8080
+  tls:
+    enabled: false

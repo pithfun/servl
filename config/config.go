@@ -3,6 +3,7 @@ package config
 import (
 	"os"
 	"strings"
+	"time"
 
 	"github.com/spf13/viper"
 )
@@ -16,14 +17,19 @@ type (
 
 	// Application configuration
 	AppConfig struct {
-		Environment environment
-		Name        string
+		EncryptionKey string
+		Environment   environment
+		Name          string
+		Timeout       time.Duration
 	}
 
 	// HTTP server configuration
 	HTTPConfig struct {
 		Hostname string
 		Port     uint16
+		TLS      struct {
+			Enabled bool
+		}
 	}
 )
 
@@ -57,9 +63,9 @@ func GetConfig() (Config, error) {
 type environment string
 
 const (
-	EnvTest environment = "TEST"
-	EnvDev  environment = "DEVELOPMENT"
-	EnvProd environment = "PRODUCTION"
+	EnvTest environment = "test"
+	EnvDev  environment = "development"
+	EnvProd environment = "production"
 )
 
 func SwitchEnv(env environment) {
