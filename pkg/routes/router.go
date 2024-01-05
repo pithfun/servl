@@ -9,14 +9,21 @@ import (
 	echomw "github.com/labstack/echo/v4/middleware"
 	"github.com/labstack/gommon/log"
 
+	"goblin/config"
 	mw "goblin/pkg/middleware"
 	"goblin/pkg/services"
 )
 
 func BuildRouter(c *services.Container) {
 	c.Web.HideBanner = true
-	c.Web.File("/favicon.ico", "static/favicon.ico")
 
+	// Enable cache control for static files.
+	// NOTE: We need to use funcmap.File() to append a cache key to the URL in
+	// order to break the cache after each server restart.
+	c.Web.Group("", mw.CacheControl(c.Config.Cache.Expiration.StaticFile)).
+		Static(config.StaticPrefix, config.StaticDir)
+
+	// Non-static routes
 	g := c.Web.Group("")
 
 	// Force HTTPS if enabled
