@@ -46,7 +46,8 @@ func BuildRouter(c *services.Container) {
 		}),
 		session.Middleware(sessions.NewCookieStore([]byte(c.Config.App.EncryptionKey))),
 		echomw.CSRFWithConfig(echomw.CSRFConfig{
-			TokenLookup: "form:csrf",
+			TokenLookup:    "form:csrf",
+			CookieSameSite: http.SameSiteDefaultMode,
 		}),
 	)
 
