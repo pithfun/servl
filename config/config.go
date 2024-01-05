@@ -8,11 +8,19 @@ import (
 	"github.com/spf13/viper"
 )
 
+const (
+	// StaticDir stores the name of the directory where we will serve static files from
+	StaticDir = "static"
+	// StaticFiles stores the URL prefix used when serving static files
+	StaticPrefix = "files"
+)
+
 type (
 	// Complete application configuration
 	Config struct {
-		App  AppConfig
-		HTTP HTTPConfig
+		App   AppConfig
+		Cache CacheConfig
+		HTTP  HTTPConfig
 	}
 
 	// Application configuration
@@ -21,6 +29,12 @@ type (
 		Environment   environment
 		Name          string
 		Timeout       time.Duration
+	}
+
+	CacheConfig struct {
+		Expiration struct {
+			StaticFile time.Duration
+		}
 	}
 
 	// HTTP server configuration
