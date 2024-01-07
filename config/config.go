@@ -32,7 +32,12 @@ type (
 	}
 
 	CacheConfig struct {
-		Expiration struct {
+		Database     int
+		Hostname     string
+		Password     string
+		Port         uint16
+		TestDatabase int
+		Expiration   struct {
 			StaticFile time.Duration
 		}
 	}

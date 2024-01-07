@@ -28,8 +28,11 @@ func main() {
 	// Start web server
 	go func() {
 		srv := http.Server{
-			Addr: fmt.Sprintf("%s:%d", c.Config.HTTP.Hostname, c.Config.HTTP.Port),
+			Addr:    fmt.Sprintf("%s:%d", c.Config.HTTP.Hostname, c.Config.HTTP.Port),
+			Handler: c.Web,
 		}
+
+		// TODO: Handle TLS certificates
 
 		if err := c.Web.StartServer(&srv); err != http.ErrServerClosed {
 			c.Web.Logger.Fatalf("shutting down the server: %v", err)
