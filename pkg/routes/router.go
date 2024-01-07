@@ -41,12 +41,10 @@ func BuildRouter(c *services.Container) {
 		}),
 		echomw.Secure(),
 		echomw.RequestID(),
-		// RquestID middleware must be called before LogRequestID.
 		mw.LogRequestID(),
 		// TODO: See https://github.com/labstack/echo/issues/1223
 		mw.Brotli(),
-		// TODO: Replace with zap logger
-		// https://betterstack.com/community/guides/logging/go/zap/
+		// TODO: https://betterstack.com/community/guides/logging/go/zap/
 		echomw.Logger(),
 		echomw.TimeoutWithConfig(echomw.TimeoutConfig{
 			Timeout: c.Config.App.Timeout,
@@ -54,7 +52,7 @@ func BuildRouter(c *services.Container) {
 		session.Middleware(sessions.NewCookieStore([]byte(c.Config.App.EncryptionKey))),
 		echomw.CSRFWithConfig(echomw.CSRFConfig{
 			TokenLookup:    "form:csrf",
-			CookieSameSite: http.SameSiteDefaultMode,
+			CookieSameSite: http.SameSiteStrictMode,
 		}),
 	)
 

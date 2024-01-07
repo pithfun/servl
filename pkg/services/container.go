@@ -2,33 +2,42 @@ package services
 
 import (
 	"fmt"
-	"goblin/config"
 
-	"github.com/davecgh/go-spew/spew"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/gommon/log"
+
+	"goblin/config"
 )
 
+// Container for all the application services
 type Container struct {
-	Config    *config.Config
-	Web       *echo.Echo
+	// Cache stores the cache client
+	Cache *CacheClient
+	// Config stores the application configuration
+	Config *config.Config
+	// Web stores the web framework
+	Web *echo.Echo
+	// Validator stores the validator
 	Validator *Validator
 }
 
-// Create and initialize a new container
+// NewContainer creates and initialize a new container
 func NewContainer() *Container {
 	c := new(Container)
 	c.initConfig()
 	c.initValidator()
 	c.initWeb()
+	c.initCache()
 
 	return c
 }
 
-// Shutdown the container
+// Shutdown the container and disconnect from all connections
 func (c *Container) Shutdown() error {
-	// TODO: Disconnect from Redis, MySQL, etc.
-	spew.Dump("SHUTING DOWN")
+	if err := c.Cache.Close(); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -41,12 +50,12 @@ func (c *Container) initConfig() {
 	c.Config = &cfg
 }
 
-// Validator
+// initValidator initializes the validator
 func (c *Container) initValidator() {
 	c.Validator = NewValidator()
 }
 
-// Web server
+// initWeb initializes the web server
 func (c *Container) initWeb() {
 	c.Web = echo.New()
 
@@ -58,4 +67,12 @@ func (c *Container) initWeb() {
 	}
 
 	c.Web.Validator = c.Validator
+}
+
+// initCache initializes the cache client
+func (c *Container) initCache() {
+	var err error
+	if c.Cache, err = NewCacheClient(c.Config); err != nil {
+		panic(err)
+	}
 }
