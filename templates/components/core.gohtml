@@ -1,0 +1,35 @@
+{{define "metatags"}}
+    <title>{{ if .Title }}{{ .Title }} &mdash; {{ end }}{{ .AppName }}</title>
+    <link rel="icon" href="{{file "favicon.ico"}}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {{- if .Metatags.Description}}
+        <meta name="description" content="{{.Metatags.Description}}">
+    {{- end}}    
+    {{- if .Metatags.Keywords}}
+        <meta name="keywords" content="{{.Metatags.Keywords | join ", "}}">
+    {{- end}}
+{{end}}
+
+{{define "css"}}
+    <link rel="stylesheet" href="{{file "css/tailwind.min.css"}}">
+{{end}}
+
+{{define "js"}}
+    <!-- unocss options -->
+    <script>
+        window.__unocss = {
+            rules: [],
+            presets: [
+                () => window.__unocss_runtime.presets.presetWind(),
+            ]
+        }
+    </script>
+        <script>
+            let FF_FOUC_FIX;
+        </script>
+    <!-- locally load unocss runtime --> 
+    <script type="text/javascript" src="{{file "js/preset-wind.global.js"}}"></script>
+    <script type="text/javascript" src="{{file "js/core.global.js"}}"></script>
+{{end}}

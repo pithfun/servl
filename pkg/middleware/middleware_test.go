@@ -4,8 +4,8 @@ import (
 	"os"
 	"testing"
 
-	"goblin/config"
-	"goblin/pkg/services"
+	"github.com/makomarket/mako/config"
+	"github.com/makomarket/mako/pkg/services"
 )
 
 var (

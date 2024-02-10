@@ -3,13 +3,13 @@ package middleware
 import (
 	"bytes"
 	"fmt"
+	"testing"
 
 	"github.com/labstack/echo/v4"
 	echomw "github.com/labstack/echo/v4/middleware"
 	"github.com/stretchr/testify/assert"
 
-	"goblin/pkg/tests"
-	"testing"
+	"github.com/makomarket/mako/pkg/tests"
 )
 
 func TestLogRequestID(t *testing.T) {

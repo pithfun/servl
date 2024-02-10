@@ -9,14 +9,14 @@ import (
 	echomw "github.com/labstack/echo/v4/middleware"
 	"github.com/labstack/gommon/log"
 
-	"goblin/config"
-	mw "goblin/pkg/middleware"
-	"goblin/pkg/services"
+	"github.com/makomarket/mako/config"
+	"github.com/makomarket/mako/pkg/controller"
+	mw "github.com/makomarket/mako/pkg/middleware"
+	"github.com/makomarket/mako/pkg/services"
 )
 
+// BuildRouter builds the router.
 func BuildRouter(c *services.Container) {
-	c.Web.HideBanner = true
-
 	// Enable cache control for static files.
 	// NOTE: We need to use funcmap.File() to append a cache key to the URL in
 	// order to break the cache after each server restart.
@@ -50,13 +50,25 @@ func BuildRouter(c *services.Container) {
 			Timeout: c.Config.App.Timeout,
 		}),
 		session.Middleware(sessions.NewCookieStore([]byte(c.Config.App.EncryptionKey))),
+		mw.ServeCachedPage(c.Cache),
 		echomw.CSRFWithConfig(echomw.CSRFConfig{
 			TokenLookup:    "form:csrf",
 			CookieSameSite: http.SameSiteStrictMode,
 		}),
 	)
 
-	g.GET("/", func(c echo.Context) error {
-		return c.String(200, "{ok}")
-	})
+	// Base controller
+	ctr := controller.NewController(c)
+
+	// Global error handler
+	err := errorHandler{Controller: ctr}
+	c.Web.HTTPErrorHandler = err.Get
+
+	// Routes
+	publicRoutes(c, g, ctr)
+}
+
+func publicRoutes(c *services.Container, g *echo.Group, ctr controller.Controller) {
+	home := home{Controller: ctr}
+	g.GET("/", home.Get).Name = "home"
 }
