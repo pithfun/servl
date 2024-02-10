@@ -13,6 +13,10 @@ const (
 	StaticDir = "static"
 	// StaticFiles stores the URL prefix used when serving static files
 	StaticPrefix = "files"
+	// TemplateExt stores the extension used for the template files
+	TemplateExt = ".gohtml"
+	// TemplateDir stores the name of the directory where we will store our templates
+	TemplateDir = "../templates"
 )
 
 type (
@@ -38,6 +42,7 @@ type (
 		Port         uint16
 		TestDatabase int
 		Expiration   struct {
+			Page       time.Duration
 			StaticFile time.Duration
 		}
 	}
@@ -64,7 +69,7 @@ func GetConfig() (Config, error) {
 	viper.AddConfigPath("../../config")
 
 	// Read config
-	viper.SetEnvPrefix("goblin")
+	viper.SetEnvPrefix("mako")
 	viper.AutomaticEnv()
 	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
 
@@ -88,7 +93,7 @@ const (
 )
 
 func SwitchEnv(env environment) {
-	if err := os.Setenv("GOBLIN_APP_ENVIRONMENT", string(env)); err != nil {
+	if err := os.Setenv("MAKO_APP_ENVIRONMENT", string(env)); err != nil {
 		panic(err)
 	}
 }

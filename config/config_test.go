@@ -24,8 +24,8 @@ func TestConfig_SwitchEnvironment(t *testing.T) {
 }
 
 func TestConfig_OverrideWithEnvVariables(t *testing.T) {
-	os.Setenv("GOBLIN_HTTP_HOSTNAME", "127.0.0.1")
-	os.Setenv("GOBLIN_HTTP_PORT", "8080")
+	os.Setenv("MAKO_HTTP_HOSTNAME", "127.0.0.1")
+	os.Setenv("MAKO_HTTP_PORT", "8080")
 
 	cfg, err := GetConfig()
 	require.NoError(t, err)

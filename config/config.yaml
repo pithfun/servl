@@ -1,5 +1,5 @@
 app:
-  name: 'goblin'
+  name: 'Mako'
   encryptionKey: 'H3@kR$8fL%gT#6Xu2sJpI7eDw9BvN0yQaFxZo1'
   environment: 'development'
   timeout: '20s'
@@ -10,6 +10,7 @@ cache:
   port: 6379
   testDatabase: 1
   expiration:
+    page: '24h'
     staticFile: '4380h'
 http:
   hostname: 'localhost'

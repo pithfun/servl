@@ -1,9 +1,10 @@
 package services
 
 import (
-	"goblin/config"
 	"os"
 	"testing"
+
+	"github.com/makomarket/mako/config"
 )
 
 var (

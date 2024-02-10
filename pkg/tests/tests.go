@@ -5,6 +5,8 @@ import (
 	"net/http/httptest"
 	"strings"
 
+	"github.com/gorilla/sessions"
+	"github.com/labstack/echo-contrib/session"
 	"github.com/labstack/echo/v4"
 )
 
@@ -13,6 +15,12 @@ func NewContext(e *echo.Echo, url string) (echo.Context, *httptest.ResponseRecor
 	req := httptest.NewRequest(http.MethodGet, url, strings.NewReader(""))
 	res := httptest.NewRecorder()
 	return e.NewContext(req, res), res
+}
+
+// InitSession initializes a session for a given Echo context
+func InitSession(ctx echo.Context) {
+	mw := session.Middleware(sessions.NewCookieStore([]byte("session")))
+	_ = ExecuteMiddleware(ctx, mw)
 }
 
 // ExecuteMiddleware executes a middleware function on a given Echo context

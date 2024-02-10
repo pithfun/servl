@@ -9,8 +9,8 @@ import (
 	"syscall"
 	"time"
 
-	"goblin/pkg/routes"
-	"goblin/pkg/services"
+	"github.com/makomarket/mako/pkg/routes"
+	"github.com/makomarket/mako/pkg/services"
 )
 
 func main() {

@@ -6,7 +6,7 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/gommon/log"
 
-	"goblin/config"
+	"github.com/makomarket/mako/config"
 )
 
 // Container for all the application services
@@ -17,6 +17,8 @@ type Container struct {
 	Config *config.Config
 	// Web stores the web framework
 	Web *echo.Echo
+	// TemplateRenderer stores the template renderer
+	TemplateRenderer *TemplateRenderer
 	// Validator stores the validator
 	Validator *Validator
 }
@@ -28,6 +30,7 @@ func NewContainer() *Container {
 	c.initValidator()
 	c.initWeb()
 	c.initCache()
+	c.initTemplateRenderer()
 
 	return c
 }
@@ -58,6 +61,7 @@ func (c *Container) initValidator() {
 // initWeb initializes the web server
 func (c *Container) initWeb() {
 	c.Web = echo.New()
+	c.Web.HideBanner = true
 
 	switch c.Config.App.Environment {
 	case config.EnvProd:
@@ -75,4 +79,9 @@ func (c *Container) initCache() {
 	if c.Cache, err = NewCacheClient(c.Config); err != nil {
 		panic(err)
 	}
+}
+
+// initTemplateRenderer initializes the template renderer
+func (c *Container) initTemplateRenderer() {
+	c.TemplateRenderer = NewTemplateRenderer(c.Config)
 }
