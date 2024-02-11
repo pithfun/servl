@@ -21,10 +21,9 @@ jobs:
         run: |
           docker-compose up -d
           sleep 3
-      - name: Install Go dependencies
+      - name: Install dependencies
         run: |
-          go mod tidy
-          go mod download
+          go get .
 
       - name: Test
         run: go test -p 1 ./...
