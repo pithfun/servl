@@ -1,4 +1,4 @@
-module github.com/makomarket/mako
+module github.com/ghostyinc/ghosty
 
 go 1.20
 

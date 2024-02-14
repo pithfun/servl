@@ -7,7 +7,7 @@ import (
 	"github.com/labstack/echo/v4"
 	echomw "github.com/labstack/echo/v4/middleware"
 
-	"github.com/makomarket/mako/pkg/htmx"
+	"github.com/ghostyinc/ghosty/pkg/htmx"
 )
 
 // Page consists of all data that will be used to render a page response for a

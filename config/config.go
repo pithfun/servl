@@ -69,7 +69,7 @@ func GetConfig() (Config, error) {
 	viper.AddConfigPath("../../config")
 
 	// Read config
-	viper.SetEnvPrefix("mako")
+	viper.SetEnvPrefix("ghosty")
 	viper.AutomaticEnv()
 	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
 

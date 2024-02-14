@@ -4,8 +4,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/makomarket/mako/config"
-	"github.com/makomarket/mako/pkg/services"
+	"github.com/ghostyinc/ghosty/config"
+	"github.com/ghostyinc/ghosty/pkg/services"
 )
 
 var (

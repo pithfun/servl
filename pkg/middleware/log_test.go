@@ -9,7 +9,7 @@ import (
 	echomw "github.com/labstack/echo/v4/middleware"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/makomarket/mako/pkg/tests"
+	"github.com/ghostyinc/ghosty/pkg/tests"
 )
 
 func TestLogRequestID(t *testing.T) {

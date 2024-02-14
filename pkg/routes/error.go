@@ -5,8 +5,8 @@ import (
 
 	"github.com/labstack/echo/v4"
 
-	"github.com/makomarket/mako/pkg/context"
-	"github.com/makomarket/mako/pkg/controller"
+	"github.com/ghostyinc/ghosty/pkg/context"
+	"github.com/ghostyinc/ghosty/pkg/controller"
 )
 
 type errorHandler struct {
