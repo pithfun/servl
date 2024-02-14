@@ -93,7 +93,7 @@ const (
 )
 
 func SwitchEnv(env environment) {
-	if err := os.Setenv("MAKO_APP_ENVIRONMENT", string(env)); err != nil {
+	if err := os.Setenv("GHOSTY_APP_ENVIRONMENT", string(env)); err != nil {
 		panic(err)
 	}
 }
