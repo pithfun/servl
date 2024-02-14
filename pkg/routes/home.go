@@ -3,7 +3,7 @@ package routes
 import (
 	"github.com/labstack/echo/v4"
 
-	"github.com/makomarket/mako/pkg/controller"
+	"github.com/ghostyinc/ghosty/pkg/controller"
 )
 
 type (

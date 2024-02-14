@@ -7,9 +7,9 @@ import (
 
 	"github.com/labstack/echo/v4"
 
-	"github.com/makomarket/mako/pkg/context"
-	"github.com/makomarket/mako/pkg/middleware"
-	"github.com/makomarket/mako/pkg/services"
+	"github.com/ghostyinc/ghosty/pkg/context"
+	"github.com/ghostyinc/ghosty/pkg/middleware"
+	"github.com/ghostyinc/ghosty/pkg/services"
 )
 
 // Controller provides base functionality and dependencies to routes.

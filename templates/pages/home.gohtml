@@ -1,10 +1,43 @@
 {{define "content"}}
-    <section class="h-full w-full">
-      <h2 class="font-bold text-2xl text-slate-800 text-white">
-        Mako
-      </h2>
-      <span class="text-white">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-      </span>
-    </section>
+    <div class="h-full w-full grid grid-rows-[auto_1fr_auto]">
+        <header>
+          <h2 class="font-bold text-2xl text-slate-800 text-white">
+            Ghosty
+          </h2>
+        </header>
+      <main class="flex flex-col flex-1">
+          <span class="text-white">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </span>
+      </main>
+      {{template "footer" .}}
+    </div>
+{{end}}
+
+{{define "footer"}}
+    <footer class="w-full h-full px-8 sm:px-16 py-6 sm:py-10 bg-black border-t border-t-1 border-slate-900">
+        <div class="grid grid-cols-10">
+            <div class="col-span-10 sm:col-span-6 mb-4 sm:mb-0">
+                <span class="text-slate-500 text-sm sm:text-base select-none mb-4">© Ghosty Labs, Inc. 2024</span>
+            </div>
+            <div class="col-span-10 sm:col-span-4 grid grid-cols-3 flex justify-between">
+                <div class="col-span-1">
+                  <div class="text-slate-200 text-sm sm:text-base font-medium select-none mb-4">Company</div>
+
+                  <div class="text-slate-500 text-sm sm:text-base mb-2">About</div>
+                  <div class="text-slate-500 text-sm sm:text-base mb-2">Jobs</div>
+                  <div class="text-slate-500 text-sm sm:text-base mb-2">ToCs & Privacy</div>
+                  <div class="text-slate-500 text-sm sm:text-base">Contact</div>
+                </div>
+                <div class="col-span-1">
+                  <div class="text-slate-200 text-sm sm:text-base font-medium select-none mb-4">Resources</div>
+
+                  <div class="text-slate-500 text-sm sm:text-base mb-2">Get Started</div>
+                  <div class="text-slate-500 text-sm sm:text-base mb-2">Developer Docs</div>
+                  <div class="text-slate-500 text-sm sm:text-base mb-2">Github</div>
+                  <div class="text-slate-500 text-sm sm:text-base">Status</div>
+                </div>
+            </div>
+        </div>
+    </footer>
 {{end}}

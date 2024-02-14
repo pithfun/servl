@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/makomarket/mako/config"
+	"github.com/ghostyinc/ghosty/config"
 )
 
 func TestHasField(t *testing.T) {

@@ -7,11 +7,11 @@ import (
 	"os"
 	"testing"
 
-	"github.com/makomarket/mako/config"
-	"github.com/makomarket/mako/pkg/htmx"
-	"github.com/makomarket/mako/pkg/middleware"
-	"github.com/makomarket/mako/pkg/services"
-	"github.com/makomarket/mako/pkg/tests"
+	"github.com/ghostyinc/ghosty/config"
+	"github.com/ghostyinc/ghosty/pkg/htmx"
+	"github.com/ghostyinc/ghosty/pkg/middleware"
+	"github.com/ghostyinc/ghosty/pkg/services"
+	"github.com/ghostyinc/ghosty/pkg/tests"
 
 	"github.com/labstack/echo/v4"
 	"github.com/stretchr/testify/assert"

@@ -11,7 +11,7 @@ import (
 	"github.com/eko/gocache/v2/store"
 	"github.com/go-redis/redis/v8"
 
-	"github.com/makomarket/mako/config"
+	"github.com/ghostyinc/ghosty/config"
 )
 
 type (

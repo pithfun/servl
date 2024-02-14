@@ -3,13 +3,13 @@ version: "3"
 services:
   cache:
     image: "redis:alpine"
-    container_name: mako_cache
+    container_name: ghosty_cache
     ports:
       - "127.0.0.1:6379:6379"
   db:
     # PG 16 is currenly not supported https://github.com/ent/ent/issues/3750
     image: postgres:15-alpine
-    container_name: mako_db
+    container_name: ghosty_db
     ports:
       - "127.0.0.1:5432:5432"
     environment:

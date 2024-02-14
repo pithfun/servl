@@ -10,8 +10,8 @@ import (
 	"runtime"
 	"sync"
 
-	"github.com/makomarket/mako/config"
-	"github.com/makomarket/mako/pkg/funcmap"
+	"github.com/ghostyinc/ghosty/config"
+	"github.com/ghostyinc/ghosty/pkg/funcmap"
 )
 
 type (
