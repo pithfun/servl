@@ -13,8 +13,8 @@
 {{end}}
 
 {{define "css"}}
-    <link rel="stylesheet" href="{{file "css/global.css"}}">
-    <link rel="stylesheet" href="{{file "css/tailwind.min.css"}}">
+    <link rel="stylesheet" type="text/css" href="{{file "css/global.css"}}">
+    <link rel="stylesheet" type="text/css" href="{{file "css/tailwind.min.css"}}">
 {{end}}
 
 {{define "js"}}
@@ -27,9 +27,9 @@
             ]
         }
     </script>
-        <script>
-            let FF_FOUC_FIX;
-        </script>
+    <script>
+        let FF_FOUC_FIX;
+    </script>
     <!-- locally load unocss runtime --> 
     <script type="text/javascript" src="{{file "js/preset-wind.global.js"}}"></script>
     <script type="text/javascript" src="{{file "js/core.global.js"}}"></script>
