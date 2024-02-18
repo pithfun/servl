@@ -14,7 +14,7 @@ import (
 )
 
 func main() {
-	// Start a new container
+	// Initiate a new container
 	c := services.NewContainer()
 	defer func() {
 		if err := c.Shutdown(); err != nil {
@@ -33,7 +33,6 @@ func main() {
 		}
 
 		// TODO: Handle TLS certificates
-
 		if err := c.Web.StartServer(&srv); err != http.ErrServerClosed {
 			c.Web.Logger.Fatalf("shutting down the server: %v", err)
 		}
