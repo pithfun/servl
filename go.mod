@@ -1,4 +1,4 @@
-module github.com/ghostyinc/ghosty
+module github.com/tiny-blob/tinyblob
 
 go 1.20
 

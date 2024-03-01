@@ -9,7 +9,7 @@ import (
 	"github.com/Masterminds/sprig"
 	"github.com/labstack/gommon/random"
 
-	"github.com/ghostyinc/ghosty/config"
+	"github.com/tiny-blob/tinyblob/config"
 )
 
 var (

@@ -7,7 +7,7 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/ghostyinc/ghosty/pkg/tests"
+	"github.com/tiny-blob/tinyblob/pkg/tests"
 )
 
 func TestSetRequest(t *testing.T) {

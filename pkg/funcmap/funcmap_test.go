@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/ghostyinc/ghosty/config"
+	"github.com/tiny-blob/tinyblob/config"
 )
 
 func TestHasField(t *testing.T) {

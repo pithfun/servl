@@ -7,9 +7,9 @@ import (
 
 	"github.com/labstack/echo/v4"
 
-	"github.com/ghostyinc/ghosty/pkg/context"
-	"github.com/ghostyinc/ghosty/pkg/middleware"
-	"github.com/ghostyinc/ghosty/pkg/services"
+	"github.com/tiny-blob/tinyblob/pkg/context"
+	"github.com/tiny-blob/tinyblob/pkg/middleware"
+	"github.com/tiny-blob/tinyblob/pkg/services"
 )
 
 // Controller provides base functionality and dependencies to routes.

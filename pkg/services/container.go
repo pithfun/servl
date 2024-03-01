@@ -6,7 +6,7 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/gommon/log"
 
-	"github.com/ghostyinc/ghosty/config"
+	"github.com/tiny-blob/tinyblob/config"
 )
 
 // Container for all the application services

@@ -10,8 +10,8 @@ import (
 	"runtime"
 	"sync"
 
-	"github.com/ghostyinc/ghosty/config"
-	"github.com/ghostyinc/ghosty/pkg/funcmap"
+	"github.com/tiny-blob/tinyblob/config"
+	"github.com/tiny-blob/tinyblob/pkg/funcmap"
 )
 
 type (

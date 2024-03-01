@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/ghostyinc/ghosty/config"
+	"github.com/tiny-blob/tinyblob/config"
 )
 
 var (
