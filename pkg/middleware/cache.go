@@ -8,8 +8,8 @@ import (
 	"github.com/go-redis/redis/v8"
 	"github.com/labstack/echo/v4"
 
-	"github.com/ghostyinc/ghosty/pkg/context"
-	"github.com/ghostyinc/ghosty/pkg/services"
+	"github.com/tiny-blob/tinyblob/pkg/context"
+	"github.com/tiny-blob/tinyblob/pkg/services"
 )
 
 // CachedPageGroup stores the cache group for cached pages

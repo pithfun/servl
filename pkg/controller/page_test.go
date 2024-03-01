@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/ghostyinc/ghosty/pkg/tests"
+	"github.com/tiny-blob/tinyblob/pkg/tests"
 )
 
 func TestNewPage_IsHome(t *testing.T) {

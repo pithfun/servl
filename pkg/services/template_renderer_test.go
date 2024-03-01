@@ -4,9 +4,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/ghostyinc/ghosty/config"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/tiny-blob/tinyblob/config"
 )
 
 func TestTemplateRenderer(t *testing.T) {

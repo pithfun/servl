@@ -7,7 +7,7 @@ import (
 	"github.com/labstack/echo/v4"
 	echomw "github.com/labstack/echo/v4/middleware"
 
-	"github.com/ghostyinc/ghosty/pkg/htmx"
+	"github.com/tiny-blob/tinyblob/pkg/htmx"
 )
 
 // Page consists of all data that will be used to render a page response for a

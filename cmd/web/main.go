@@ -9,8 +9,8 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/ghostyinc/ghosty/pkg/routes"
-	"github.com/ghostyinc/ghosty/pkg/services"
+	"github.com/tiny-blob/tinyblob/pkg/routes"
+	"github.com/tiny-blob/tinyblob/pkg/services"
 )
 
 func main() {

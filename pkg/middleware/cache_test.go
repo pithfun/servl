@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/ghostyinc/ghosty/pkg/tests"
+	"github.com/tiny-blob/tinyblob/pkg/tests"
 )
 
 func TestServeCachedPage(t *testing.T) {

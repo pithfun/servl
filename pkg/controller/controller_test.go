@@ -7,11 +7,11 @@ import (
 	"os"
 	"testing"
 
-	"github.com/ghostyinc/ghosty/config"
-	"github.com/ghostyinc/ghosty/pkg/htmx"
-	"github.com/ghostyinc/ghosty/pkg/middleware"
-	"github.com/ghostyinc/ghosty/pkg/services"
-	"github.com/ghostyinc/ghosty/pkg/tests"
+	"github.com/tiny-blob/tinyblob/config"
+	"github.com/tiny-blob/tinyblob/pkg/htmx"
+	"github.com/tiny-blob/tinyblob/pkg/middleware"
+	"github.com/tiny-blob/tinyblob/pkg/services"
+	"github.com/tiny-blob/tinyblob/pkg/tests"
 
 	"github.com/labstack/echo/v4"
 	"github.com/stretchr/testify/assert"

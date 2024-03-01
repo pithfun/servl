@@ -5,8 +5,8 @@ import (
 
 	"github.com/labstack/echo/v4"
 
-	"github.com/ghostyinc/ghosty/pkg/context"
-	"github.com/ghostyinc/ghosty/pkg/controller"
+	"github.com/tiny-blob/tinyblob/pkg/context"
+	"github.com/tiny-blob/tinyblob/pkg/controller"
 )
 
 type errorHandler struct {

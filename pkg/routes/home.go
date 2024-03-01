@@ -3,7 +3,7 @@ package routes
 import (
 	"github.com/labstack/echo/v4"
 
-	"github.com/ghostyinc/ghosty/pkg/controller"
+	"github.com/tiny-blob/tinyblob/pkg/controller"
 )
 
 type (

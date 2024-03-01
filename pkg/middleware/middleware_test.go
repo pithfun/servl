@@ -4,8 +4,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/ghostyinc/ghosty/config"
-	"github.com/ghostyinc/ghosty/pkg/services"
+	"github.com/tiny-blob/tinyblob/config"
+	"github.com/tiny-blob/tinyblob/pkg/services"
 )
 
 var (

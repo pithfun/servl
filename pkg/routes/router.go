@@ -9,10 +9,10 @@ import (
 	echomw "github.com/labstack/echo/v4/middleware"
 	"github.com/labstack/gommon/log"
 
-	"github.com/ghostyinc/ghosty/config"
-	"github.com/ghostyinc/ghosty/pkg/controller"
-	mw "github.com/ghostyinc/ghosty/pkg/middleware"
-	"github.com/ghostyinc/ghosty/pkg/services"
+	"github.com/tiny-blob/tinyblob/config"
+	"github.com/tiny-blob/tinyblob/pkg/controller"
+	mw "github.com/tiny-blob/tinyblob/pkg/middleware"
+	"github.com/tiny-blob/tinyblob/pkg/services"
 )
 
 // BuildRouter builds the router.
