@@ -14,7 +14,7 @@ const (
 	// StaticFiles stores the URL prefix used when serving static files
 	StaticPrefix = "files"
 	// TemplateExt stores the extension used for the template files
-	TemplateExt = ".gohtml"
+	TemplateExt = ".tmpl"
 	// TemplateDir stores the name of the directory where we will store our templates
 	TemplateDir = "../templates"
 )
