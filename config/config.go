@@ -15,8 +15,6 @@ const (
 	StaticPrefix = "files"
 	// TemplateExt stores the extension used for the template files
 	TemplateExt = ".tmpl"
-	// TemplateDir stores the name of the directory where we will store our templates
-	TemplateDir = "../templates"
 )
 
 type (

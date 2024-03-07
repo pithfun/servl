@@ -1,12 +1,12 @@
 package services
 
 import (
-	"os"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"github.com/tiny-blob/tinyblob/config"
+	"github.com/tiny-blob/tinyblob/templates"
 )
 
 func TestTemplateRenderer(t *testing.T) {
@@ -37,7 +37,7 @@ func TestTemplateRenderer(t *testing.T) {
 	expectedTemplate := make(map[string]bool)
 	expectedTemplate["htmx"+config.TemplateExt] = true
 	expectedTemplate["error"+config.TemplateExt] = true
-	components, err := os.ReadDir(c.TemplateRenderer.GetTemplatesPath() + "/components")
+	components, err := templates.Templates.ReadDir("components")
 	require.NoError(t, err)
 	for _, f := range components {
 		expectedTemplate[f.Name()] = true
