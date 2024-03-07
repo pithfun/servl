@@ -12,6 +12,7 @@ import (
 	"github.com/tiny-blob/tinyblob/pkg/middleware"
 	"github.com/tiny-blob/tinyblob/pkg/services"
 	"github.com/tiny-blob/tinyblob/pkg/tests"
+	"github.com/tiny-blob/tinyblob/templates"
 
 	"github.com/labstack/echo/v4"
 	"github.com/stretchr/testify/assert"
@@ -85,7 +86,7 @@ func TestController_RenderPage(t *testing.T) {
 		expectedTemplates := make(map[string]bool)
 		expectedTemplates[p.Name+config.TemplateExt] = true
 		expectedTemplates[p.Layout+config.TemplateExt] = true
-		components, err := os.ReadDir(c.TemplateRenderer.GetTemplatesPath() + "/components")
+		components, err := templates.Templates.ReadDir("components")
 		require.NoError(t, err)
 
 		for _, f := range components {
@@ -120,7 +121,7 @@ func TestController_RenderPage(t *testing.T) {
 		expectedTemplates := make(map[string]bool)
 		expectedTemplates[p.Name+config.TemplateExt] = true
 		expectedTemplates["htmx"+config.TemplateExt] = true
-		components, err := os.ReadDir(c.TemplateRenderer.GetTemplatesPath() + "/components")
+		components, err := templates.Templates.ReadDir("components")
 		require.NoError(t, err)
 
 		for _, f := range components {

@@ -5,13 +5,11 @@ import (
 	"errors"
 	"fmt"
 	"html/template"
-	"path"
-	"path/filepath"
-	"runtime"
 	"sync"
 
 	"github.com/tiny-blob/tinyblob/config"
 	"github.com/tiny-blob/tinyblob/pkg/funcmap"
+	"github.com/tiny-blob/tinyblob/templates"
 )
 
 type (
@@ -25,8 +23,6 @@ type (
 		funcMap template.FuncMap
 		// templateCache stores a cache of the parsed page templates
 		templateCache sync.Map
-		// templatesPath stores the complete path to the templates directory
-		templatesPath string
 	}
 	// TemplateParsed is a wrapper around parsed templates which are stored in the
 	// TemplateRenderer cache.
@@ -53,25 +49,11 @@ type (
 
 // NewTemplateRenderer creates a new TemplateRenderer
 func NewTemplateRenderer(cfg *config.Config) *TemplateRenderer {
-	t := &TemplateRenderer{
+	return &TemplateRenderer{
 		config:        cfg,
 		funcMap:       funcmap.GetFuncMap(),
 		templateCache: sync.Map{},
 	}
-
-	// Gets the complete templates directory path.
-	// We need to do this incase we call this function from outside our main
-	// function i.e. tests.
-	_, file, _, _ := runtime.Caller(0)
-	d := path.Join(path.Dir(file))
-	t.templatesPath = filepath.Join(filepath.Dir(d), config.TemplateDir)
-
-	return t
-}
-
-// GetTemplatePath gets the complete path to the templates directory.
-func (t *TemplateRenderer) GetTemplatesPath() string {
-	return t.templatesPath
 }
 
 // Base sets the name of the base template to be used during parsing and
@@ -203,10 +185,10 @@ func (t *TemplateRenderer) parse(build *templateBuild) (*TemplateParsed, error) 
 		// Parse all the provided files
 		if len(build.files) > 0 {
 			for k, v := range build.files {
-				build.files[k] = fmt.Sprintf("%s/%s%s", t.templatesPath, v, config.TemplateExt)
+				build.files[k] = fmt.Sprintf("%s%s", v, config.TemplateExt)
 			}
 
-			parsed, err = parsed.ParseFiles(build.files...)
+			parsed, err = parsed.ParseFS(templates.Templates, build.files...)
 			if err != nil {
 				return nil, err
 			}
@@ -214,8 +196,8 @@ func (t *TemplateRenderer) parse(build *templateBuild) (*TemplateParsed, error) 
 
 		// Parse all templates within the provided directories
 		for _, dir := range build.directories {
-			dir = fmt.Sprintf("%s/%s/*%s", t.templatesPath, dir, config.TemplateExt)
-			parsed, err = parsed.ParseGlob(dir)
+			dir = fmt.Sprintf("%s/*%s", dir, config.TemplateExt)
+			parsed, err = parsed.ParseFS(templates.Templates, dir)
 			if err != nil {
 				return nil, err
 			}
