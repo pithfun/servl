@@ -1,4 +1,4 @@
-name: Go Test
+name: CI
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  test:
+  run_test_and_fmt:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -26,5 +26,12 @@ jobs:
         run: |
           go get ./...
 
+      - name: Format code
+        uses: Jerome1337/gofmt-action@v1.0.5
+        with:
+          gofmt-path: './'
+          gofmt-flags: '-l -d'
+
       - name: Test
         run: go test -p 1 ./...
+
