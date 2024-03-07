@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
 
       - name: Set up Go
         uses: actions/setup-go@v4
@@ -26,8 +29,10 @@ jobs:
         run: |
           go get ./...
 
-      - name: Format
-        run: if [ "$(gofmt -s -l . | wc -l)" -gt 0 ]; then exit 1; fi
+      - name: Format code
+        uses: iamnotaturtle/auto-gofmt@v1.0
+        with:
+          only_changed: True
 
       - name: Test
         run: go test -p 1 ./...
