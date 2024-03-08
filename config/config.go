@@ -85,9 +85,10 @@ func GetConfig() (Config, error) {
 type environment string
 
 const (
-	EnvTest environment = "test"
-	EnvDev  environment = "development"
-	EnvProd environment = "production"
+	EnvTest  environment = "test"
+	EnvLocal environment = "local"
+	EnvDev   environment = "development"
+	EnvProd  environment = "production"
 )
 
 func SwitchEnv(env environment) {

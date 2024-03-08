@@ -37,7 +37,7 @@ func TestTemplateRenderer(t *testing.T) {
 	expectedTemplate := make(map[string]bool)
 	expectedTemplate["htmx"+config.TemplateExt] = true
 	expectedTemplate["error"+config.TemplateExt] = true
-	components, err := templates.Templates.ReadDir("components")
+	components, err := templates.Get().ReadDir("components")
 	require.NoError(t, err)
 	for _, f := range components {
 		expectedTemplate[f.Name()] = true
