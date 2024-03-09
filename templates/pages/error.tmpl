@@ -6,8 +6,8 @@
             <p>You’re not authorized to view the requested page</p>
         {{else if eq .StatusCode 404}}
             <div>
-                <h1 class="text-white text-8xl">404</h1>
-                <p class="text-white">Click {{link (call .ToURL "home") "here" .Path}} to return home</p>
+                <h1 class="text-black text-8xl">404</h1>
+                <p class="text-black">Click {{link (call .ToURL "home") "here" .Path}} to return home</p>
             </div>
         {{else}}
             <p>Something went wrong. Our engineers have been notified.</>

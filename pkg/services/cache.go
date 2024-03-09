@@ -37,13 +37,13 @@ type (
 		client   *CacheClient
 		group    string
 		key      string
-		dataType interface{}
+		dataType any
 	}
 
 	// cacheSet handles chainable cache set operations
 	cacheSet struct {
 		client     *CacheClient
-		data       interface{}
+		data       any
 		expiration time.Duration
 		group      string
 		key        string
@@ -96,13 +96,13 @@ func (c *CacheClient) Close() error {
 }
 
 // Data sets the data to the cache
-func (c *cacheSet) Data(data interface{}) *cacheSet {
+func (c *cacheSet) Data(data any) *cacheSet {
 	c.data = data
 	return c
 }
 
 // Fetch retrieves the data from the cache
-func (c *cacheGet) Fetch(ctx context.Context) (interface{}, error) {
+func (c *cacheGet) Fetch(ctx context.Context) (any, error) {
 	if c.key == "" {
 		return nil, errors.New("no cache key provided")
 	}
@@ -225,7 +225,7 @@ func (c *cacheSet) Tags(tags ...string) *cacheSet {
 }
 
 // Type set the cache type for the expected data
-func (c *cacheGet) Type(expectedType interface{}) *cacheGet {
+func (c *cacheGet) Type(expectedType any) *cacheGet {
 	c.dataType = expectedType
 	return c
 }

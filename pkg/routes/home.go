@@ -4,6 +4,7 @@ import (
 	"github.com/labstack/echo/v4"
 
 	"github.com/tiny-blob/tinyblob/pkg/controller"
+	"github.com/tiny-blob/tinyblob/templates"
 )
 
 type (
@@ -15,21 +16,17 @@ type (
 func (c *home) Get(ctx echo.Context) error {
 	page := controller.NewPage(ctx)
 	page.Cache.Enabled = true
-	page.Layout = "main"
-	page.Name = "home"
-	page.Metatags.Description = "Instantly execute complex crypto strategies at lightning speed."
+	page.Layout = templates.LayoutMain
+	page.Name = templates.PageHome
+	page.Metatags.Description = "A Player vs Player decentralized prediction market "
 	page.Metatags.Keywords = []string{
-		"Crypto trading",
-		"Solana trading",
-		"Automated trading",
-		"Lightning-fast transactions",
-		"Seamless execution",
-		"Crypto strategies",
-		"Drag and drop builder",
-		"Signal trading",
-		"Trade executor",
+		"Crypto",
+		"PvP trading",
+		"Decentralized",
+		"Bitcoin",
+		"PvP prediction market",
 	}
-	page.Title = "Crypto tools for professionals"
+	page.Title = "A PvP prediction marketplace"
 
 	return c.RenderPage(ctx, page)
 }

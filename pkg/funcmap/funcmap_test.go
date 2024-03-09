@@ -33,7 +33,7 @@ func TestLink(t *testing.T) {
 	assert.Equal(t, expected, link)
 }
 
-func TestGetFuncMap(t *testing.T) {
+func TestFile(t *testing.T) {
 	fileName := "favicon.ico"
 	file := File(fileName)
 	expected := fmt.Sprintf("/%s/%s?v=%s", config.StaticPrefix, fileName, CacheBuster)

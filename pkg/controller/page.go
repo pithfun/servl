@@ -8,6 +8,7 @@ import (
 	echomw "github.com/labstack/echo/v4/middleware"
 
 	"github.com/tiny-blob/tinyblob/pkg/htmx"
+	"github.com/tiny-blob/tinyblob/templates"
 )
 
 // Page consists of all data that will be used to render a page response for a
@@ -41,20 +42,20 @@ type Page struct {
 	// This should match a template file located within the layouts directory
 	// inside the templates directory. The template extension should not be
 	// included in this value.
-	Layout string
+	Layout templates.Layout
 	// Name stores the name of the page as well as the name of the template file
 	// which will be used to render the content portion of the layout template.
 	// This should match a template file located within the pages directory inside
 	// the templates directory. The template extension should not be included in
 	// this value.
-	Name string
+	Name templates.Page
 	// RequestID stores the ID of the given request.
 	// This will only be populated if the request ID middleware is in effect for the given request.
 	RequestID string
 	// StatusCode stores the HTTP status code to be returned.
 	StatusCode int
 	// ToURL is a function to convert a route name and optional route parameters to a URL
-	ToURL func(name string, params ...interface{}) string
+	ToURL func(name string, params ...any) string
 	Path  string
 	// URL stores the URL of the current request
 	URL string
