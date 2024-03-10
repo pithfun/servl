@@ -9,6 +9,20 @@ import (
 	"runtime"
 )
 
+type (
+	Layout string
+	Page   string
+)
+
+const (
+	LayoutMain Layout = "main"
+)
+
+const (
+	PageError Page = "error"
+	PageHome  Page = "home"
+)
+
 //go:embed *
 var templates embed.FS
 

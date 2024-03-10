@@ -73,7 +73,7 @@ func (t *templateBuilder) Directories(directories ...string) *templateBuilder {
 }
 
 // Execute executes a template with the given data and returns the output
-func (t *TemplateParsed) Execute(data interface{}) (*bytes.Buffer, error) {
+func (t *TemplateParsed) Execute(data any) (*bytes.Buffer, error) {
 	if t.Template == nil {
 		return nil, errors.New("cannot execute template: template not initialized")
 	}
@@ -89,7 +89,7 @@ func (t *TemplateParsed) Execute(data interface{}) (*bytes.Buffer, error) {
 
 // Execute executes a template with the given data
 // If the template has not been cached, it will be parsed and cached.
-func (t *templateBuilder) Execute(data interface{}) (*bytes.Buffer, error) {
+func (t *templateBuilder) Execute(data any) (*bytes.Buffer, error) {
 	tp, err := t.Store()
 	if err != nil {
 		return nil, err

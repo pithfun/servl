@@ -15,6 +15,10 @@ import (
 	"github.com/tiny-blob/tinyblob/pkg/services"
 )
 
+const (
+	routeNameHome = "home"
+)
+
 // BuildRouter builds the router.
 func BuildRouter(c *services.Container) {
 	// Enable cache control for static files.
@@ -70,5 +74,5 @@ func BuildRouter(c *services.Container) {
 
 func publicRoutes(c *services.Container, g *echo.Group, ctr controller.Controller) {
 	home := home{Controller: ctr}
-	g.GET("/", home.Get).Name = "home"
+	g.GET("/", home.Get).Name = routeNameHome
 }
