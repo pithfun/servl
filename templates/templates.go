@@ -19,8 +19,9 @@ const (
 )
 
 const (
-	PageError Page = "error"
-	PageHome  Page = "home"
+	PageDashboard Page = "dashboard"
+	PageError     Page = "error"
+	PageHome      Page = "home"
 )
 
 //go:embed *
