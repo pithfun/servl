@@ -1,36 +1,27 @@
 {{define "metatags"}}
-    <title>{{ if .Title }}{{ .Title }} &mdash; {{ end }}{{ .AppName }}</title>
-    <link rel="icon" href="{{file "favicon.ico"}}">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    {{- if .Metatags.Description}}
-        <meta name="description" content="{{.Metatags.Description}}">
-    {{- end}}
-    {{- if .Metatags.Keywords}}
-        <meta name="keywords" content="{{.Metatags.Keywords | join ", "}}">
-    {{- end}}
-{{end}}
-
-{{define "css"}}
-    <link rel="stylesheet" type="text/css" href="{{file "css/global.css"}}">
-    <link rel="stylesheet" type="text/css" href="{{file "css/tailwind.min.css"}}">
+	<title>{{ if .Title }}{{ .Title }} &mdash; {{ end }}{{ .AppName }}</title>
+	<link rel="icon" href="{{file "favicon.ico"}}">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	{{- if .Metatags.Description}}
+		<meta name="description" content="{{.Metatags.Description}}">
+	{{- end}}
+	{{- if .Metatags.Keywords}}
+			<meta name="keywords" content="{{.Metatags.Keywords | join ", "}}">
+	{{- end}}
 {{end}}
 
 {{define "js"}}
-    <!-- locally load unocss runtime -->
-    <script type="text/javascript" src="{{file "js/preset-wind.global.js"}}"></script>
-    <!-- unocss options -->
-    <script>
-        window.__unocss = {
-            rules: [],
-            presets: [
-                () => window.__unocss_runtime.presets.presetWind(),
-            ]
-        }
-    </script>
-    <script>
-        let FF_FOUC_FIX;
-    </script>
-    <script type="text/javascript" src="{{file "js/core.global.js"}}"></script>
+	<script defer src="{{file "js/alpinejs-3.13.7.min.js"}}"></script>
+	<script type="text/javascript" src="{{file "js/core.global.js"}}"></script>
+	<script type="text/javascript" src="{{file "js/preset-wind.global.js"}}"></script>
+	<script src="{{file "js/htmx-1.9.3.min.js"}}"></script>
+	<script src="{{file "js/store.js"}}"></script>
+	<script>
+		window.__unocss = {
+			rules: [],
+			presets: [() => window.__unocss_runtime.presets.presetWind()]
+		}
+	</script>
 {{end}}

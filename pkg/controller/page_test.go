@@ -9,6 +9,7 @@ import (
 )
 
 func TestNewPage_IsHome(t *testing.T) {
+	// TODO: Implement proper tests
 	ctx, _ := tests.NewContext(c.Web, "/")
 	page := NewPage(ctx)
 

@@ -1,33 +1,33 @@
 {{define "content"}}
     <div class="h-full w-full grid grid-rows-[auto_1fr_auto]">
-     {{template "header" .}}
-      <main class="flex flex-col flex-1 sm:py-4 py-6 sm:py-10 items-center justify-center">
-        <div class="text-slate-400 text-sm sm:text-sm bg-purple-100">
-            Soon.
-        </div>
-      </main>
-      {{template "footer" .}}
-    </div>
+		{{template "header" .}}
+		<main class="flex flex-col flex-1 sm:py-4 py-6 sm:py-10 items-center justify-center">
+			<div class="text-slate-400 text-sm sm:text-sm bg-purple-100">
+				Soon.
+			</div>
+		</main>
+		{{template "footer" .}}
+	</div>
 {{end}}
 
 {{define "header"}}
-    <header class="w-full h-full flex justify-between items-center">
-        <h2 class="text-black font-medium text-lg select-none">
-            TinyBlob
-        </h2>
-        <div class="text-black font-medium text-base select-none">
-		{{link (call .ToURL "dashboard") "Launch App" .Path}}
-        </div>
-    </header>
+	<header class="w-full h-full flex justify-between items-center">
+		<h2 class="text-black font-medium text-lg select-none">
+			TinyBlob
+		</h2>
+		<div class="text-black font-medium text-base select-none">
+			{{link (call .ToURL "dashboard") "Launch App" .Path}}
+		</div>
+	</header>
 {{end}}
 
 {{define "footer"}}
-    <footer class="w-full h-full flex justify-between items-center">
-        <span class="text-slate-400 text-sm sm:text-sm select-none">
-            © TinyBlob Labs, 2024
-        </span>
-        <div class="text-gray-400 text-sm sm:text-sm mb-2 bg-slate-200 px-3 py-2 rounded-2xl">
-            About
-        </div>
-    </footer>
+	<footer class="w-full h-full flex justify-between items-center">
+		<span class="text-slate-400 text-sm sm:text-sm select-none">
+				© TinyBlob Labs, 2024
+		</span>
+		<div class="text-gray-400 text-sm sm:text-sm mb-2 bg-slate-200 px-3 py-2 rounded-2xl">
+				About
+		</div>
+	</footer>
 {{end}}
