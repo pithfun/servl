@@ -14,7 +14,6 @@
 
 {{define "js"}}
 	<script defer src="{{file "js/alpinejs-3.13.7.min.js"}}"></script>
-	<script type="text/javascript" src="{{file "js/core.global.js"}}"></script>
 	<script type="text/javascript" src="{{file "js/preset-wind.global.js"}}"></script>
 	<script src="{{file "js/htmx-1.9.3.min.js"}}"></script>
 	<script src="{{file "js/store.js"}}"></script>
@@ -24,4 +23,5 @@
 			presets: [() => window.__unocss_runtime.presets.presetWind()]
 		}
 	</script>
+	<script type="text/javascript" src="{{file "js/core.global.js"}}"></script>	
 {{end}}
