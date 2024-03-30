@@ -16,8 +16,7 @@ import (
 )
 
 const (
-	routeNameDashboard = "dashboard"
-	routeNameHome      = "home"
+	routeNameHome = "home"
 )
 
 // BuildRouter builds the router.
@@ -76,7 +75,4 @@ func BuildRouter(c *services.Container) {
 func userRoutes(g *echo.Group, ctr controller.Controller) {
 	home := home{Controller: ctr}
 	g.GET("/", home.Get).Name = routeNameHome
-
-	dashboard := dashboard{Controller: ctr}
-	g.GET("/d", dashboard.Get).Name = routeNameDashboard
 }

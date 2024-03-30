@@ -27,7 +27,7 @@ document.addEventListener('alpine:init', () => {
       if (__provider__?.isPhantom) {
         __provider__.on('connect', (pub_key) => {
           if (pub_key) {
-            this.init_wallet();
+            this.init_wallet(pub_key);
           } else {
             this.clean_up();
           }

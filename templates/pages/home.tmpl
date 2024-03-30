@@ -1,33 +1,177 @@
 {{define "content"}}
-    <div class="h-full w-full grid grid-rows-[auto_1fr_auto]">
-		{{template "header" .}}
-		<main class="flex flex-col flex-1 sm:py-4 py-6 sm:py-10 items-center justify-center">
-			<div class="text-slate-400 text-sm sm:text-sm bg-purple-100">
-				Soon.
+	<div class="w-full h-full flex flex-row">
+		<aside class="flex flex-col h-full w-full max-w-56 bg-secondary">
+			X
+		</aside>
+		<main class="w-full h-full flex-col p-8">
+			<header class="w-full flex justify-between">
+				<h6 class="text-gray-300 font-medium">
+					# Markets
+				</h6>
+				<span class="font-medium text-gray-400 py-1"># CVxV6…Lh7Ni</span>
+			</header>
+			<table class="w-full text-gray-300 mt-6">
+				<tr>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">Asset</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">Target</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">Created By</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">Status</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">Pool value</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">PNL</th>
+				</tr>
+				<tr>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">Bitcoin</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">$25,372</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">
+						Avb1P…Pseudf
+					</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">
+						<span class="bg-green-100 px-2 py-1 rounded-md">
+							<span class="text-green-700">Open</span>
+						</span>
+					</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">-</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">-</th>
+				</tr>
+				<tr>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">Solana</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">$25,372</th>					
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">
+						Avb1P…Pseudf
+					</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">
+						<span class="bg-orange-100 px-2 py-1 rounded-md">
+							<span class="text-orange-700">Closed</span>
+						</span>
+					</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">$4,392</th>
+					<th class="text-left text-base text-red-400 font-normal py-3 border-b-1 border-gray-700">$253</th>
+				</tr>
+				<tr>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">Solana</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">$25,372</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">
+						Avb1P…Pseudf
+					</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">
+						<span class="bg-orange-100 px-2 py-1 rounded-md">
+							<span class="text-orange-700">Closed</span>
+						</span>
+					</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">$14,392</th>
+					<th class="text-left text-base text-green-400 font-normal py-3 border-b-1 border-gray-700">$4,653</th>
+				</tr>
+				<tr>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">Ethereum</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">$25,372</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">
+						Avb1P…Pseudf
+					</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">
+						<span class="bg-green-100 px-2 py-1 rounded-md">
+							<span class="text-green-700">Open</span>
+						</span>
+					</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">-</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">-</th>
+				</tr>
+				<tr>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">Bitcoin</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">$25,372</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">
+						Avb1P…Pseudf
+					</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">
+						<span class="bg-orange-100 px-2 py-1 rounded-md">
+							<span class="text-orange-700">Closed</span>
+						</span>
+					</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">-</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">-</th>
+				</tr>
+				<tr>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">Solana</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">$25,372</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">
+						Avb1P…Pseudf
+					</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">
+						<span class="bg-orange-100 px-2 py-1 rounded-md">
+							<span class="text-orange-700">Closed</span>
+						</span>
+					</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">$21,392</th>
+					<th class="text-left text-base text-green-400 font-normal py-3 border-b-1 border-gray-700">$2,653</th>
+				</tr>
+				<tr>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">Solana</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">$25,372</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">
+						Avb1P…Pseudf
+					</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">
+						<span class="bg-green-100 px-2 py-1 rounded-md">
+							<span class="text-green-700">Open</span>
+						</span>
+					</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">-</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">-</th>
+				</tr>
+				<tr>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">Solana</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">$25,372</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">
+						Avb1P…Pseudf
+					</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">
+						<span class="bg-orange-100 px-2 py-1 rounded-md">
+							<span class="text-orange-700">Closed</span>
+						</span>
+					</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">-</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">-</th>
+				</tr>
+				<tr>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">Bitcoin</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">$25,372</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">
+						Avb1P…Pseudf
+					</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">
+						<span class="bg-orange-100 px-2 py-1 rounded-md">
+							<span class="text-orange-700">Closed</span>
+						</span>
+					</th>
+					<th class="text-left text-base text-gray-300 font-normal py-3 border-b-1 border-gray-700">$4,392</th>
+					<th class="text-left text-base text-green-400 font-normal py-3 border-b-1 border-gray-700">$653</th>
+				</tr>												
+			</table>
+
+			<div
+				x-data="{ is_connected: $store[APP_NAME].is_connected }"
+				x-init="
+					$watch('$store[APP_NAME].is_connected', value => {
+						is_connected = value;
+					})
+				"
+			>
+				<button
+					x-show="!is_connected"
+					@click="$store[APP_NAME].connect_wallet()"
+				>
+					Connect
+				</button>
+				<button
+					x-show="is_connected"
+					@click="$store[APP_NAME].disconnect_wallet()"
+				>
+					Disconnect
+				</button>
 			</div>
+
+			<button @click="theme = theme === 'light' ? 'dark' : 'light'">
+				Toggle Theme
+			</button>
 		</main>
-		{{template "footer" .}}
 	</div>
-{{end}}
-
-{{define "header"}}
-	<header class="w-full h-full flex justify-between items-center">
-		<h2 class="text-black font-medium text-lg select-none">
-			TinyBlob
-		</h2>
-		<div class="text-black font-medium text-base select-none">
-			{{link (call .ToURL "dashboard") "Launch App" .Path}}
-		</div>
-	</header>
-{{end}}
-
-{{define "footer"}}
-	<footer class="w-full h-full flex justify-between items-center">
-		<span class="text-slate-400 text-sm sm:text-sm select-none">
-				© TinyBlob Labs, 2024
-		</span>
-		<div class="text-gray-400 text-sm sm:text-sm mb-2 bg-slate-200 px-3 py-2 rounded-2xl">
-				About
-		</div>
-	</footer>
 {{end}}
